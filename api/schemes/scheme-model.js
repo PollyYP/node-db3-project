@@ -21,7 +21,7 @@ function find() {
   return db("schemes as sc")
     .leftJoin("steps as st", "sc.scheme_id", "st.scheme_id")
     .groupBy("sc.scheme_id")
-    .orderBy("sc.scheme_id")
+    .orderBy("sc.scheme_id", "asc")
     .select("sc.scheme_id", "scheme_name")
     .count("st.step_id as number_of_steps");
 }
